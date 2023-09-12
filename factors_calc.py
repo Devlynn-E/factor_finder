@@ -54,7 +54,8 @@ def num_check(question):
 
 def get_factors(to_factor):
 
-    
+    # me when
+
 
 statement_gen("factor finder", "*")
 
@@ -65,6 +66,37 @@ instructions_yes = ["y"]
 if instructions in instructions_yes:
     print("\ninput an integer between 1 and 200 (inclusive)")
 
-num_check(int(input("what is your number (1-200): ")))
+keep_going = ""
+while keep_going == "":
 
+    comment = ""
 
+    var_to_factor = num_check("number? ")
+
+    if var_to_factor != 1:
+        factor_list = get_factors(var_to_factor)
+    else:
+        factor_list = ""
+        comment = "one is UNITY! It only had one factor. Itself."
+
+    if len(factor_list) == 2:
+        comment = "{} is a prime number.".format(var_to_factor)
+    elif len(factor_list) % 2 == 1:
+        comment = "{} is a perfect square".format(var_to_factor)
+
+    if var_to_factor == 1:
+        heading = "One is special..."
+
+    else:
+        heading = "Factors of {}".format(var_to_factor)
+
+    statement_gen(heading, "*")
+    print()
+    print(factor_list)
+    print(comment)
+
+    print()
+    keep_going = input("Press <enter> to continue or <any> to stop")
+    print()
+
+print("\nThank you for using the factors calculator")
