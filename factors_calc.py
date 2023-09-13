@@ -53,8 +53,27 @@ def num_check(question):
 
 
 def get_factors(to_factor):
+    # list to hold factors
+    factors_list = []
 
-    # me when
+    # Square root factor to find 'half-way'
+    limit = int(to_factor ** 0.5)
+
+    # Find factor pairs and add to list
+    for item in range(1, limit + 1):
+        result = to_factor % item
+        factor_1 = int(to_factor // item)
+
+    # Add factor to a list if it is not already there
+    if result == 0:
+        factors_list.append(factor_1)
+
+    if item not in factors_list:
+        factors_list.append(item)
+
+    # Output
+    factors_list.sort()
+    return factors_list
 
 
 statement_gen("factor finder", "*")
