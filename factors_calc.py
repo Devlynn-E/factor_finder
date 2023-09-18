@@ -53,32 +53,29 @@ def num_check(question):
 
 
 def get_factors(to_factor):
-    # list to hold factors
+
     factors_list = []
 
-    # Square root factor to find 'half-way'
     limit = int(to_factor ** 0.5)
 
-    # Find factor pairs and add to list
     for item in range(1, limit + 1):
+
         result = to_factor % item
         factor_1 = int(to_factor // item)
 
-    # Add factor to a list if it is not already there
-    if result == 0:
-        factors_list.append(factor_1)
+        if result == 0:
+            factors_list.append(factor_1)
 
-    if item not in factors_list:
-        factors_list.append(item)
+            if item not in factors_list:
+                factors_list.append(item)
 
-    # Output
     factors_list.sort()
     return factors_list
 
 
 statement_gen("factor finder", "*")
 
-instructions = input("would you like instructions? <y> for yes, <n> for no ")
+instructions = input("would you like instructions? <y> for yes, <any> for no ")
 
 instructions_yes = ["y"]
 
@@ -95,11 +92,12 @@ while keep_going == "":
     if var_to_factor != 1:
         factor_list = get_factors(var_to_factor)
     else:
-        factor_list = ""
         comment = "one is UNITY! It only had one factor. Itself."
+        factor_list = ""
 
     if len(factor_list) == 2:
         comment = "{} is a prime number.".format(var_to_factor)
+
     elif len(factor_list) % 2 == 1:
         comment = "{} is a perfect square".format(var_to_factor)
 
@@ -107,7 +105,7 @@ while keep_going == "":
         heading = "One is special..."
 
     else:
-        heading = "Factors of {}".format(var_to_factor)
+        heading = "Factors of {:.0f}".format(var_to_factor)
 
     statement_gen(heading, "*")
     print()
