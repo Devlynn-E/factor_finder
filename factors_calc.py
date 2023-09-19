@@ -41,7 +41,7 @@ def num_check(question):
 
             num = int(input("enter the number: "))
 
-            if num >= 1:
+            if 1 <= num <= 200:
                 valid = True
 
             else:
