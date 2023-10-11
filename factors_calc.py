@@ -16,33 +16,14 @@ def num_check(question):
     valid = False
     while not valid:
 
-        error = "please input an integer that is more than ""(or equal to) 1"
+        error = "please input an integer that is more than (or equal to) 1 and less than or equal to 200"
 
         try:
 
             response = int(input(question))
 
-            if response >= 1:
+            if 200 >= response >= 1:
                 return response
-
-            else:
-                print(error)
-                print()
-
-        except ValueError:
-            print(error)
-
-    valid = False
-    while not valid:
-
-        error = "please input a number above zero"
-
-        try:
-
-            num = int(input("enter the number: "))
-
-            if 1 <= num <= 200:
-                valid = True
 
             else:
                 print(error)
